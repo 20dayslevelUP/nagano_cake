@@ -49,8 +49,10 @@ ActiveRecord::Schema.define(version: 2022_03_17_165153) do
     t.text "introduction", null: false
     t.integer "price", null: false
     t.boolean "is_active", default: true, null: false
+    t.integer "genre_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_items_on_genre_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -61,8 +63,12 @@ ActiveRecord::Schema.define(version: 2022_03_17_165153) do
     t.string "address", null: false
     t.string "post_code", null: false
     t.integer "status", default: 0, null: false
+    t.integer "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_orders_on_order_id"
   end
 
+  add_foreign_key "items", "genres"
+  add_foreign_key "orders", "orders"
 end
