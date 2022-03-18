@@ -15,7 +15,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 #管理者側ルーティング
 namespace :admin do
-  root to: "orders#index" #管理者側TOPページ（行けるか不安）
+  root to: "orders#index" #管理者側TOPページ
   resources :items, only: [:index, :new, :create, :show, :edit, :update]
   resources :genres, only: [:index, :create, :edit, :update]
   resources :customers, only: [:index, :show, :edit, :update]
