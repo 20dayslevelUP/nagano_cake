@@ -7,7 +7,7 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
-  enum is_active: { 販売中: true, 売切れ: false }
+  enum is_active: { 販売中: true, 販売停止中: false }
 
 
   def get_image(width, height)
