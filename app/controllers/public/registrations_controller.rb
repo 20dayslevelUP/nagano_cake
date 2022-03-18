@@ -59,4 +59,16 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  before_action :authenticate_user!, except: [:top, :about]
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def after_sign_up_path_for(resource)
+    customer_path(resource)
+  end
+
+  def configure_permitted_parameters #sign_upの際にlast_name〜phone_numberのデータ操作を許可
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :address, :post_code, :phone_number])
+  end
 end
