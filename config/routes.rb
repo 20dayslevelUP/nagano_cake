@@ -20,7 +20,7 @@ namespace :admin do
   resources :genres, only: [:index, :create, :edit, :update]
   resources :customers, only: [:index, :show, :edit, :update]
   resources :orders, only: [:index, :show, :update] do
-    resource :order_ditails, only: [:update]
+    resources :order_ditails, only: [:update]
   end
 end
 
@@ -29,11 +29,31 @@ end
 scope module: :public do
 
 resources :items, only: [:index, :show]
-resources :cart_items, only: [:index, :create, :update, :destroy]
+resources :cart_items, only: [:index, :create, :update, :destroy] do
+  collection do
+    delete 'destroy_all'
+  end
+end
 
-resources :orders, only: [:new, :create, :index, :show]
+resources :orders, only: [:new, :create, :index, :show] do
+  collection do
+    post 'confirm'
+  end
+  collection do
+    get 'thanks'
+  end
+end
 
-resources :customers, only: [:show, :edit, :update]
+resource :customers, only: [:edit] do
+  get '/my_page', to: 'customers#show'
+  get '/my_page', to: 'customers#update'
+  collection do
+    get 'unsubscribe'
+  end
+  collection do
+    patch 'withdraw'
+  end
+end
 
 resources :addresses, only: [:index, :create, :edit, :update, :destroy]
 
