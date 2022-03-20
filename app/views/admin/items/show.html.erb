@@ -1,7 +1,7 @@
 <h2>商品詳細</h2>
 
 
-  <%= image_tag @item.image %>
+  <%= image_tag @item.image, size:'100x100' %>
 
   <p>商品名</p>
   <%= @item.name %>
@@ -20,5 +20,3 @@
   <%= @item.is_active? ? "販売中" : "販売停止中" %>
 
   <%= link_to '編集する', admin_item_path(item) %>
-
-<% end %>

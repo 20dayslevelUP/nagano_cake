@@ -5,7 +5,7 @@ class Public::ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find[params:id]
+    @item = Item.find(params[:id])
     @item_quanity = Item.new
   end
 end

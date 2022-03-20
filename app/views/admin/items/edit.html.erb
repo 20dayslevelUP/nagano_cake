@@ -18,7 +18,7 @@
 
   <div class="form-group">
   <%= f.label :genre, "ジャンル" %>
-  <%= f.collection_select :genre_id, @genre, include_blank: "--選択して下さい--" %>
+  <%= f.collection_select :genre_id, @genres, include_blank: "--選択して下さい--" %>
   </div>
 
   <div class="form-group">
@@ -28,8 +28,10 @@
 
   <div class="form-group">
   <%= f.label :is_active, "販売ステータス" %>
-  <%= f.radio_button :is_active, :販売中, checked: "checked" %>
-  <%= f.radio_button :is_active, :販売停止中　%>
+  <%= f.radio_button :is_active, :sale, checked: "checked" %>
+  <%= f.label :is_active, "販売中" %>
+  <%= f.radio_button :is_active, :sale_stop　%>
+  <%= f.label :is_active, "販売停止中" %>
   </div>
 
   <div class="form-group">
