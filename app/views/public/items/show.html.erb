@@ -2,4 +2,10 @@
 
 <%= @item.name %>
 <%= @item.introduction %>
-<%= .add_tax_sales_price.to_s(:dalimited) %>
+<%= @item.add_tax_sales_price.to_s(:dalimited) %>
+
+<%= form_with model: @item_quanity, local: true |f| %>
+  <%= f.select :quanity, *[1..20]  %>
+  <%= f.hidden_field :quanity, value: @item %>
+  <%= f.submit 'カートに入れる' %>
+<% end %>

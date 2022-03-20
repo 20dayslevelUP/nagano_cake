@@ -3,7 +3,7 @@
 <%= form_with model: @item, local: true do |f| %>
   <div class="form-group">
   <%= f.label :image, "商品画像" %>
-  <%= f.file_field :image, accept: "image/*" %>
+  <%= f.file_field :image, accept: "image/*", size:'100x100' %>
   </div>
 
   <div class="form-group">
@@ -28,8 +28,10 @@
 
   <div class="form-group">
   <%= f.label :is_active, "販売ステータス" %>
-  <%= f.radio_button :is_active, :販売中, checked: "checked" %>
-  <%= f.radio_button :is_active, :販売停止中　%>
+  <%= f.radio_button :is_active, :sale, checked: "checked" %>
+  <%= f.label :is_active, "販売中" %>
+  <%= f.radio_button :is_active, :sale_stop　%>
+  <%= f.label :is_active, "販売停止中" %>
   </div>
 
   <div class="form-group">
