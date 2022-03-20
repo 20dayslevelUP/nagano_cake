@@ -9,7 +9,7 @@
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
           <li>
-            <%= link_to my_page_customers_path(current_user),class: 'nav-link text-dark' do %>
+            <%= link_to customers_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-home"></i> マイページ
             <% end %>
           </li>
@@ -19,7 +19,7 @@
             <% end %>
           </li>
           <li>
-            <%=  link_to books_path ,class: 'nav-link text-dark' do %>
+            <%=  link_to cart_items_path ,class: 'nav-link text-dark' do %>
               <i class="fas fa-book-open"></i> カート
             <% end %>
           </li>
