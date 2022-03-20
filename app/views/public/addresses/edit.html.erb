@@ -1,1 +1,26 @@
 <h1>配送先編集</h1>
+
+<%= form_with model: @address do |f| %>
+
+  <%#郵便番号の列 %>
+  <div>
+   <%= f.label :郵便番号 %>
+   <%= f.text_field :post_code, placeholder: '00000000' %>
+  </div>
+
+  <%#住所の列 %>
+  <div>
+   <%= f.label :住所 %>
+   <%= f.text_field :address, placeholder: '東京都渋谷区代々木神園町0-0'  %>
+  </div>
+
+  <%#住所の列 %>
+  <div>
+   <%= f.label :宛名 %>
+   <%= f.text_field :name, placeholder: '令和道子' %>
+  </div>
+
+
+  <%# 確認ボタンの列 %>
+  <div><%= f.submit "保存" %></div>
+<% end %>
