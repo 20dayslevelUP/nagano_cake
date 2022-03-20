@@ -1,1 +1,60 @@
-<h1>カート内商品一覧ページ</h1>
+ <div>
+      <h2>ショッピングカート</h2>
+      <div>
+        <%= link_to destroy_all_cart_items_path, method: :delete,class: 'nav-link text-light' do %>
+          <i class="fas fa-sign-out-alt"></i> カートを空にする
+        <% end %>
+      </div>
+
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <%= @cart_items.each do |cart_item| %>
+              <tr>
+                <td>
+                  <!--ここに商品の画像入れる-->
+                  <!--< image_tag book.user.get_profile_image, size:'50x50' %>-->
+                  <!--商品名-->
+                  <%= cart_item.item.name %>
+                </td>
+                <td><%= cart_item.item.with_tax_price %></td>
+                <td>
+                  <%= f.select cart_item.quantity, *[1..20] %>
+                  <%= link_to cart_item_path, method: :update, class: 'nav-link text-light' do %>
+                    <i class="fas fa-sign-out-alt"></i> 変更
+                  <% end %>
+                </td>
+                <td><%= cart_item.subtotal %></td>
+                <td>
+                  <!--link_toについて、destroyのプレフィックスがないため、URL貼り付け-->
+                  <%= link_to '/cart_items/:id', method: :delete, class: 'nav-link text-light' do %>
+                    <i class="fas fa-sign-out-alt"></i> 削除する
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+      
+      <div>
+        <% @total_price +=  cart_item.subtotal %>
+      </div>
+      <div>
+        <%= link_to root_path,　class: 'nav-link text-light' do %>
+          <i class="fas fa-sign-out-alt"></i> 買い物を続ける
+        <% end %>
+      </div>
+      <div>
+        <%= link_to new_order_path,　class: 'nav-link text-light' do %>
+          <i class="fas fa-sign-out-alt"></i> 情報入力に進む
+        <% end %>
+      </div>
+    </div>

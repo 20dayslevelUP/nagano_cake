@@ -1,7 +1,13 @@
 class CartItem < ApplicationRecord
-  
+
   belongs_to :customer
   belongs_to :item
-  
-  validates :quantity, presence: true, length: {maximum: 20, minimum: 0}, numericality: true #２０個制限
+
+  validates :quantity, presence: true
+
+
+  # 消費税を求めるメソッド
+  def subtotal
+    item.with_tax_price * quantity
+  end
 end
