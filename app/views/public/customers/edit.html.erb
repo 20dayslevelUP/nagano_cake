@@ -1,6 +1,6 @@
 <h1>会員情報編集</h1>
 
-<%= form_with model: @customer do |f| %>
+<%= form_with model: @customer, url: customers_path do |f| %>
  <div class="field">
     <%= f.label :（姓） %>
     <%= f.text_field :last_name, autofocus: true, placeholder:"例）令和", autocomplete: "last_name" %>

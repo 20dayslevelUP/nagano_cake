@@ -24,7 +24,6 @@ namespace :admin do
   end
 end
 
-
 #顧客側ルーティング
 scope module: :public do
 
@@ -44,16 +43,10 @@ resources :orders, only: [:new, :create, :index, :show] do
   end
 end
 
-resource :customers, only: [:edit] do
-  get '/my_page', to: 'customers#show'
-  get '/my_page', to: 'customers#update'
-  collection do
-    get 'unsubscribe'
-  end
-  collection do
-    patch 'withdraw'
-  end
-end
+get 'customers/unsubscribe' => 'customers#unsubscribe'
+patch 'customers/withdraw' => 'customers#withdraw'
+
+resource "customers", path: 'customers/my_page', only: [:edit, :show, :update]
 
 resources :addresses, only: [:index, :create, :edit, :update, :destroy]
 
