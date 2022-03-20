@@ -6,8 +6,8 @@ class CartItem < ApplicationRecord
   validates :quantity, presence: true
 
 
-  # 消費税を求めるメソッド
+  # 小計を求めるメソッド
   def subtotal
-    item.with_tax_price * quantity
+    item.add_tax_price * quantity
   end
 end
