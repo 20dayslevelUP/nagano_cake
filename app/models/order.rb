@@ -5,5 +5,5 @@ class Order < ApplicationRecord
   belongs_to :customer
 
   enum payment_method: { credit_card: 0, transfer: 1 }
-  enum status: { 入金待ち: 0, 入金確認: 1, 制作中: 2, 発送準備中: 3, 発送済み: 4 }
+  enum status: { waiting_payment: 0, confirm_payment: 1, production: 2, send_ready: 3, send_complete: 4 }
 end
