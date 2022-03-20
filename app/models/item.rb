@@ -9,7 +9,7 @@ class Item < ApplicationRecord
 
   enum is_active: { sale: true, sale_stop: false }
   validates :is_active, inclusion: { in: [true, false] }
-  
+
   validates :name, presence: true
   validates :introduction, presence: true
   validates :genre_id, presence: true
@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   end
 
   def add_tax_price
-    (self.price * 1.10).round
+    (self.price * 1.11).round
   end
 
 end

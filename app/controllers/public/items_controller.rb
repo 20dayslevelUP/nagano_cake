@@ -6,6 +6,6 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @item_quanity = Item.new
+    @cart_item = CartItem.find(params[:id])
   end
 end
