@@ -1,0 +1,10 @@
+<div>
+<h2>商品一覧</h2>
+<h3><%= @items.count %></h3>
+</div>
+
+<%= @items.each do |item| %>
+  <%= image_tag item.image %>
+  <%= item.name %>
+  <%= price %>
+<% end %>
