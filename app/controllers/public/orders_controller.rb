@@ -8,6 +8,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @cart_items = CartItem.all
     # 新しい住所
     @order = Order.new(order_params)
     # 登録済み住所
