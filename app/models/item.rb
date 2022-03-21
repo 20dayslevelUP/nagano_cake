@@ -7,19 +7,21 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
-  enum is_active: { 販売中: true, 販売停止中: false }
+  enum is_active: { sale: true, sale_stop: false }
+  validates :is_active, inclusion: { in: [true, false] }
+
+  validates :name, presence: true
+  validates :introduction, presence: true
+  validates :genre_id, presence: true
+  validates :price, presence: true
 
 
-  def get_image(width, height)
-    unless image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpg')
-    end
-    image.variant(resize_to_limit: [width, height]).processed
+  def get_image
+    (image.attached?) ? image : 'no_image.jpg'
   end
 
   def add_tax_price
-    (self.price * 1.10).round
+    (self.price * 1.11).round
   end
 
 end

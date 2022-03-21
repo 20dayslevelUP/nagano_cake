@@ -1,10 +1,11 @@
 <div>
 <h2>商品一覧</h2>
-<h3><%= @items.count %></h3>
+<h3>全<%= @items.count %>件</h3>
 </div>
 
 <%= @items.each do |item| %>
-  <%= image_tag item.image %>
+  <%= image_tag item.image, size:'100x100' %>
   <%= item.name %>
-  <%= price %>
+  <%= item.price %>
 <% end %>
+<%= paginate @items %>
