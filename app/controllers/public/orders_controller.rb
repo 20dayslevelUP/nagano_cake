@@ -8,7 +8,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    # 新しい住所
     @order = Order.new(order_params)
+    # 登録済み住所
+    @address = Address.find(params[:order][:address_id])
+    # 自身の住所
+    @order.post_code = @address.post_code
+    @order.address = @address.address
+    @order.name = @address.name
   end
 
   def thanks
@@ -25,6 +32,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method)
+    params.require(:order).permit(:payment_method, :post_code, :address, :name)
   end
 end
