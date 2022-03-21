@@ -1,2 +1,12 @@
-<h1>退会するの？しないの？</h1>
-<p>ねぇ、はっきりして！！！！</p>
+<h1>本当に退会しますか？</h1>
+        <p>退会すると、会員登録情報や</P>
+        <p>これまでの購入履歴が閲覧できなくなります。</p>
+        <p>退会する場合は、「退会する」をクリックしてください。</p>
+
+      <div>
+        <!-- マイページへ-->
+        <%= link_to "退会しない", customers_path, class:"btn btn-primary" %>
+
+        <!-- 会員ステータスを無効に切り替えるwithdrawアクションを呼ぶ-->
+        <%= link_to "退会する", customers_withdraw_path, method: :patch, data: {confirm: "本当に退会してもよろしいですか？"}, class:"btn btn-danger" %>
+      </div>

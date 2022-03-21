@@ -1,4 +1,4 @@
-class Public::AddressController < ApplicationController
+class Public::AddressesController < ApplicationController
   #before_action :authenticate_customer!
   before_action :set_address, only: [:edit, :update, :destroy]
 
@@ -40,5 +40,4 @@ class Public::AddressController < ApplicationController
   def address_params
     params.require(:address).permit(:post_code, :address, :name, :customer_id)
   end
-
 end

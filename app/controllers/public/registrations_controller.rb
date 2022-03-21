@@ -64,7 +64,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(resource)
-    customer_path(resource)
+    customers_path(resource)
   end
 
   def configure_permitted_parameters #sign_upの際にlast_name〜phone_numberのデータ操作を許可
