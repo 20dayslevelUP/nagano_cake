@@ -1,11 +1,13 @@
-<%= image_tag @item.image, size:'100x100' %>
+<%= image_tag @item.get_image, size:'100x100' %>
 
 <%= @item.name %>
 <%= @item.introduction %>
-<%= @item.add_tax_sales_price.to_s(:dalimited) %>
+<%= @item.add_tax_price.to_s(:dalimited) %>
 
-<%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true |f| %>
-  <%= f.hidden_field :item_id, :value => @item.id %>
-  <%= f.select :quanity, *[1..20], include_blank: "個数選択"  %>
-  <%= f.submit 'カートに入れる' %>
+<% if @item.is_active == true %>
+  <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
+    <%= f.select :quantity, *[1..20], include_blank: "個数選択"  %>
+    <%= f.submit 'カートに入れる' %>
+  <% end %>
 <% end %>

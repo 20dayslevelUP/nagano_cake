@@ -5,8 +5,11 @@ class Address < ApplicationRecord
   validates :address, presence: true
   validates :name, presence: true
 
+
+
+
   # orderモデルで使用します。〒OOO-OOO 住所 宛名
   def address_display
-  '〒' + postal_code + ' ' + address + ' ' + name
+  '〒' + post_code + ' ' + address + ' ' + name
   end
 end
