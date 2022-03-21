@@ -14,11 +14,3 @@ ja:
            production: "制作中"
            send_ready: "発送準備中"
            send_complete: "発送済み"
-
-
-ja:
-     enums:
-       item:
-         is_active:
-           sale: "販売中"
-           sale_stop: "販売停止中"

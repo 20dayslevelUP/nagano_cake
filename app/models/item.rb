@@ -7,7 +7,7 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
-  enum is_active: { sale: true, sale_stop: false }
+  # enum is_active: { sale: true, sale_stop: false }
   validates :is_active, inclusion: { in: [true, false] }
 
   validates :name, presence: true

@@ -6,7 +6,7 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.genre_id = genre.id
+    # @item.genre_id = genre.id
     if @item.save
       redirect_to admin_item_path(@item)
     else
