@@ -1,1 +1,50 @@
-<h1>管理者側、顧客</h1>
+<h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h1>
+
+<%= form_with model: @customer, url: admin_customer_path do |f| %>
+ <div class="field">
+    <%= f.label :id, "会員ID" %>
+    <%= @customer.id %>
+  </div>
+
+ <div class="field">
+    <%= f.label :氏名 %>
+    <%= f.text_field :last_name, autofocus: true, placeholder:"例）令和", autocomplete: "last_name" %>
+    <%= f.text_field :first_name, placeholder:"例）道子", autocomplete: "first_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :フリガナ %>
+    <%= f.text_field :last_name_kana, placeholder:"例）レイワ",　autocomplete: "last_name_kana" %>
+    <%= f.text_field :first_name_kana, placeholder:"例）ミチコ",autocomplete: "first_name_kana" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :郵便番号（ハイフンなし） %>
+    <%= f.text_field :post_code, placeholder:"例）0000000", autocomplete: "post_code" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :住所 %>
+    <%= f.text_area :address, placeholder:"例）東京都渋谷区代々木神園町0-0", autocomplete: "address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :電話番号（ハイフンなし） %><br />
+    <%= f.text_field :phone_number, placeholder:"例）0000000000", autocomplete: "phone_number" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, placeholder:"例）sample@example.com", autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_deleted, "会員ステータス" %>
+    <%= f.radio_button :is_deleted, true %>
+    <%= f.label :is_deleted, "退会" %>
+    <%= f.radio_button :is_deleted, false %>
+    <%= f.label :is_deleted, "有効" %>
+  </div>
+
+  <%= f.submit "編集内容を保存" %>
+ <% end %>
