@@ -15,4 +15,14 @@ class Customer < ApplicationRecord
   validates :post_code, presence: true, length: {maximum: 7, minimum: 7}, numericality: true #numericality:属性に数値のみが使えるバリデーション
   validates :address, presence: true
   validates :phone_number, presence: true, length: {maximum: 11, minimum: 10}, numericality: true
+
+
+
+
+
+  # orderモデルで使用します。〒OOO-OOO 住所 宛名
+  def address_display
+    '〒' + post_code + ' ' + address + ' ' + last_name + first_name
+  end
+
 end
