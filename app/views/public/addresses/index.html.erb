@@ -24,8 +24,8 @@
      <div>住所<%= address.address %></div>
      <div>宛名<%= address.name %></div>
     　<div>
-      　<%#= link_to "編集する", edit_address_path(address) %>
-      　<%#= link_to "削除する", address_path(address) %>
+      　<%= link_to "編集する", edit_address_path(address) %>
+      　<%= link_to "削除する", address_path(address), method: :delete %>
     　</div>
     </div>
  <% end %>
