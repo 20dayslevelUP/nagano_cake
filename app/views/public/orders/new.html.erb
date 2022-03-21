@@ -1,5 +1,5 @@
 <h2>注文情報入力</h2>
-<%= form_with model: Order,local:true do |f| %>
+<%= form_with model: @order,local:true do |f| %>
 <div>
   <p>支払い方法</p>
     <!--クレジットカードのラジオボタン-->
@@ -34,3 +34,7 @@
 <% end %>
 
 <%= link_to "確認画面へ進む", confirm_orders_path, method: :post %>
+
+            <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-dark' do %>
+              <i class="fas fa-sign-out-alt"></i>　ログアウト
+            <% end %>

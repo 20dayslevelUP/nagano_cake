@@ -7,11 +7,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-          
+
           <nav class="navbar navbar-light">
   <form class="container-fluid justify-content-start">
-    
-          
+
+
         <% if customer_signed_in? %>
           <li>
             <button type="button" class="btn btn-sm btn-outline-light ml-3">
@@ -58,7 +58,7 @@
           </li>
           <li>
             <button type="button" class="btn btn-sm btn-outline-light ml-3">
-            <%=  link_to cadmin_orders_path,class: 'nav-link text-dark' do %>
+            <%=  link_to admin_orders_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-solid fa-clock"></i>　注文履歴一覧
             <% end %>
             </button>
@@ -107,7 +107,7 @@
             </button>
           </li>
         <% end %>
-        
+
         </form>
         </nav>
 
