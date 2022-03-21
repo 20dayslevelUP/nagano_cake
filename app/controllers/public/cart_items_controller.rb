@@ -33,8 +33,8 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all #カートを空にする
-    @cart_items = current_customer.cart_iems.all
-    @cart_iems.destroy_all
+    @cart_items = current_customer.cart_items.all
+    @cart_items.destroy_all
     redirect_to cart_items_path
   end
 
