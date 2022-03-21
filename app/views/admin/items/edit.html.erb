@@ -1,6 +1,6 @@
 <h2>商品編集</h2>
 
-<%= form_with model: @item, local: true do |f| %>
+<%= form_with model: @item, url: admin_item_path(@item), local: true do |f| %>
   <div class="form-group">
   <%= f.label :image, "商品画像" %>
   <%= f.file_field :image, accept: "image/*" %>
@@ -18,19 +18,19 @@
 
   <div class="form-group">
   <%= f.label :genre, "ジャンル" %>
-  <%= f.collection_select :genre_id, @genres, include_blank: "--選択して下さい--" %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, {class: "new-wrapper__main__input-select"} %>
   </div>
 
   <div class="form-group">
   <%= f.label :price, "税抜価格" %>
-  <%= f.number_field :price %>円
+  <%= f.text_field :price %>円
   </div>
 
   <div class="form-group">
   <%= f.label :is_active, "販売ステータス" %>
-  <%= f.radio_button :is_active, :sale, checked: "checked" %>
+  <%= f.radio_button :is_active, true, checked: "checked" %>
   <%= f.label :is_active, "販売中" %>
-  <%= f.radio_button :is_active, :sale_stop　%>
+  <%= f.radio_button :is_active, false %>
   <%= f.label :is_active, "販売停止中" %>
   </div>
 
