@@ -1,11 +1,13 @@
 <div>
 <h2>商品一覧</h2>
-<h3>全<%= @items.count %>件</h3>
+<h4>全<%= @items.count %>件</h4>
 </div>
 
-<%= @items.each do |item| %>
-  <%= image_tag item.image, size:'100x100' %>
-  <%= item.name %>
+<% @items.each do |item| %>
+  <%= link_to item_path(item) do %>
+    <%= image_tag item.get_image, size:'100x100' %><br>
+    <%= item.name %>
+  <% end %>
   <%= item.price %>
 <% end %>
 <%= paginate @items %>
