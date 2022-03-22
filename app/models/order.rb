@@ -11,4 +11,10 @@ class Order < ApplicationRecord
   def add_tax_price
     (self.price * 1.1).round
   end
+
+    # 小計を求めるメソッド
+  def subtotal
+    item.add_tax_price * quantity
+  end
+
 end
