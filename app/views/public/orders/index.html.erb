@@ -1,5 +1,5 @@
 <h1>注文履歴一覧</h1>
-<table>
+<table border="1" style="border-collapse: collapse">
   <thead>
     <th>
       <td>注文日</td>
@@ -20,6 +20,7 @@
       <td><%= order.status %></td>
       <td><%=link_to "表示する", order_path(order) %></td>
     </tr>
+    <% end %>
   </thead>
 </table>
 
