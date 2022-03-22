@@ -5,8 +5,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    cart_items = CartItem.all
-    @order = Order.new(order_params)
+    cart_items = current_customer.cart_items.all
+    @order = current_customer.orders.new(order_params)
     if @order.save
       cart_items.each do |cart_item|
         # order_detailsにも一緒にデータを保存する
