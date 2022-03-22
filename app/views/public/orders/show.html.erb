@@ -17,10 +17,10 @@
   <tr>
     <% @order_details.each do |order_detail| %>
     <td><%= order_detail.item.name %></td>
-    <td><%= order_detail.item.add_tax_price.to_s(:dalimited) %></td>
+    <td><%= order_detail.item.add_tax_price.to_s(:delimited) %></td>
     <td><%= order_detail.quantity %></td>
-    <td><%= order_detail.price.to_s(:dalimited) %></td>
-    <% end 
+    <td><%= order_detail.price.to_s(:delimited) %></td>
+    <% end %>
   </tr>
 </table border="1" style="border-collapse: collapse">
 <h4>請求情報</h4>
