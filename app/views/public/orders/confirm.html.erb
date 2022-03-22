@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <%= @cart_items.each do |cart_item| %>
+      <% @cart_items.each do |cart_item| %>
       <tr>
         <td>
           <%= image_tag cart_item.item.get_image, size:'100x100' %>
@@ -23,11 +23,12 @@
       </tr>
     </tbody>
   </table>
+      <% end %>
 
   <table>
     <tr><th>送料</th><td>800</td></tr>
-    <tr><th>商品合計</th><td><%= (cart_item.item.add_tax_price + 800).to_s(:delimited) %></td></tr>
-    <tr><th>請求金額</th><td><%= @total_price.to_s(:delimited) %></td></tr>
+    <tr><th>商品合計</th><td><%= @total_price.to_s(:delimited) %></td></tr>
+    <tr><th>請求金額</th><td><%= (@total_price +800).to_s(:delimited) %></td></tr>
   </table>
 
 
@@ -37,6 +38,7 @@
   <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
     <%= f.hidden_field :name %>
     <%= f.hidden_field :address %>
+    <%= f.hidden_field :post_code, :value => @order.post_code %>
     <%= f.hidden_field :total_price, :value => @total_price %>
     <%= f.submit '注文を確定する' %>
   <% end %>

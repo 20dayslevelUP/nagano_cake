@@ -7,6 +7,7 @@ class Public::OrdersController < ApplicationController
   def create
     cart_items = current_customer.cart_items.all
     @order = current_customer.orders.new(order_params)
+    @order.postage = 800 
     if @order.save
       cart_items.each do |cart_item|
         # order_detailsにも一緒にデータを保存する
@@ -35,7 +36,7 @@ class Public::OrdersController < ApplicationController
     # 自身の住所の場合
     if params[:order][:address_number] == "1"
 
-      @order.name = current_customer.name
+      @order.name = current_customer.last_name
       @order.address = current_customer.address
       @order.post_code = current_customer.post_code
 
@@ -64,7 +65,7 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders.all
-    
+
   end
 
   def show
@@ -74,11 +75,12 @@ class Public::OrdersController < ApplicationController
 
   private
 
+  
   def order_params
     params.require(:order).permit(:payment_method, :total_price, :postage, :name, :address, :post_code, :status)
   end
 
   def address_params
-  params.require(:order).permit(:name, :address, :post_code)
+    params.require(:order).permit(:name, :address, :post_code)
   end
 end
