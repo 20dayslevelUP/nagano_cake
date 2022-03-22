@@ -1,47 +1,55 @@
-<h1>会員情報編集</h1>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+      <h3>会員情報編集</h3>
+      </div>
+    </div>
 
-<%= form_with model: @customer, url: customers_path do |f| %>
- <div class="field">
-    <%= f.label :（姓） %>
-    <%= f.text_field :last_name, autofocus: true, placeholder:"例）令和", autocomplete: "last_name" %>
+    <div class="row">
+      <div class="col-lg-9">
+      <%= form_with model: @customer, url: customers_path do |f| %>
+      <table class="edit_customer">
+        <tr>
+          <th>（姓）</th>
+          <td><%= f.text_field :last_name, autofocus: true, placeholder:"例）令和", autocomplete: "last_name" %></td>
+          <th>（名）</th>
+          <td><%= f.text_field :first_name, placeholder:"例）道子", autocomplete: "first_name" %></td>
+        </tr>
+
+        <tr>
+          <th>（セイ）</th>
+          <td><%= f.text_field :last_name_kana, placeholder:"例）レイワ",　autocomplete: "last_name_kana" %></td>
+          <th>（メイ）</th>
+          <td><%= f.text_field :first_name_kana, placeholder:"例）ミチコ",autocomplete: "first_name_kana" %></td>
+        </tr>
+
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= f.email_field :email, placeholder:"例）sample@example.com", autocomplete: "email" %></td>
+        </tr>
+
+        <tr>
+          <th>郵便番号（ハイフンなし）</th>
+          <td><%= f.text_field :post_code, placeholder:"例）0000000", autocomplete: "post_code" %></td>
+        </tr>
+
+        <tr>
+          <th>住所</th>
+          <td><%= f.text_area :address, placeholder:"例）東京都渋谷区代々木神園町0-0", autocomplete: "address" %></td>
+        </tr>
+
+        <tr>
+          <th>電話番号（ハイフンなし）</th>
+          <td><%= f.text_field :phone_number, placeholder:"例）0000000000", autocomplete: "phone_number" %></td>
+        </tr>
+
+        <tr>
+          <th></th>
+          <td><%= f.submit "編集内容を保存" %></td>
+          <td><%= link_to "退会する", customers_unsubscribe_path %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
   </div>
-
-
- <div class="field">
-    <%= f.label :（名） %>
-    <%= f.text_field :first_name, placeholder:"例）道子", autocomplete: "first_name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :（セイ） %>
-    <%= f.text_field :last_name_kana, placeholder:"例）レイワ",　autocomplete: "last_name_kana" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :（メイ） %>
-    <%= f.text_field :first_name_kana, placeholder:"例）ミチコ",autocomplete: "first_name_kana" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :メールアドレス %>
-    <%= f.email_field :email, placeholder:"例）sample@example.com", autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :郵便番号（ハイフンなし） %>
-    <%= f.text_field :post_code, placeholder:"例）0000000", autocomplete: "post_code" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :住所 %>
-    <%= f.text_area :address, placeholder:"例）東京都渋谷区代々木神園町0-0", autocomplete: "address" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :電話番号（ハイフンなし） %><br />
-    <%= f.text_field :phone_number, placeholder:"例）0000000000", autocomplete: "phone_number" %>
-  </div>
-
-  <%= f.submit "編集内容を保存" %>
-  <%= link_to "退会する", customers_unsubscribe_path %>
-  <% end %>
+</div>
