@@ -7,7 +7,7 @@ class Public::OrdersController < ApplicationController
   def create
     cart_items = current_customer.cart_items.all
     @order = current_customer.orders.new(order_params)
-    @order.postage = 800 
+    @order.postage = 800
     if @order.save
       cart_items.each do |cart_item|
         # order_detailsにも一緒にデータを保存する
@@ -69,13 +69,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
-    @order_details = @order.order_details
+    @order = current_customer.orders.find(params[:id])
+    @total_price = @order.order_details.item.inject(0) { |sum, item| sum + item.order_subtotal }
   end
 
   private
 
-  
+
   def order_params
     params.require(:order).permit(:payment_method, :total_price, :postage, :name, :address, :post_code, :status)
   end

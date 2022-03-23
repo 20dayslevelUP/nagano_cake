@@ -1,23 +1,22 @@
 <h1>注文履歴一覧</h1>
 <table border="1" style="border-collapse: collapse">
   <thead>
-    <th>
-      <td>注文日</td>
-      <td>配送先</td>
-      <td>注文商品</td>
-      <td>支払金額</td>
-      <td>ステータス</td>
-      <td>注文詳細</td>
-    </th>
+    <td>注文日</td>
+    <td>配送先</td>
+    <td>注文商品</td>
+    <td>支払金額</td>
+    <td>ステータス</td>
+    <td>注文詳細</td>
+  
     <% @orders.each do |order| %>
     <tr>
-      <td><%= order.created_at %></td>
+      <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
       <td><%= order.post_code %><%= order.address %><%= order.name %></td>
       <% order.order_details.each do |order_detail| %>
       <td><%= order_detail.item.name %></td>
       <% end %>
       <td><%= order.total_price %></td>
-      <td><%= order.status %></td>
+      <td><%= order.status_i18n %></td>
       <td><%=link_to "表示する", order_path(order) %></td>
     </tr>
     <% end %>

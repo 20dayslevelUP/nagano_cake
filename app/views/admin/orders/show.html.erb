@@ -10,7 +10,7 @@
   </tr>
   <tr>
     <th>配送先</th>
-    <td><%= @order.post_code %><%= order.address %><br><%= order.name %></td>
+    <td><%= @order.post_code %><%= @order.address %><br><%= @order.name %></td>
   </tr>
   <tr>
     <th>支払方法</th>
@@ -18,35 +18,44 @@
   </tr>
   <tr>
     <th>注文ステータス</th>
-    <%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
-    <%= f.select :status, Order.statuses_i18n.invert, {prompt: false}, class:"form-control form-control-sm col-6" %>
-    <%= f.submit '変更', class:"btn btn-success" %>
-    <td><%= @order.status %></td><!--ここ更新できるように-->
+    <td>
+
+      <%= form_with model: @order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
+        <%= f.select :status, Order.statuses.keys.map{|k| [I18n.t("enums.order.status.#{k}"), k]},class: "order_status" %>
+        <%= f.submit "更新" , class: "btn btn-outline-success" %>
+      <% end %>
+
+    </td>
   </tr>
 </table>
 
 <table border="1" style="border-collapse: collapse">
-  <th>
-    <td>商品</td>
-    <td>単価（税込）</td>
-    <td>数量</td>
-    <td>小計</td>
-    <td>製作ステータス</td>
-  </th>
+  <thead>
+  <th>商品</th>
+  <th>単価（税込）</th>
+  <th>数量</th>
+  <th>小計</th>
+  <th>製作ステータス</th>
+  </thead>
+  <tbody>
+    <% @order.order_details.each do |order_detail| %>
   <tr>
-    <% @order_details.each do |order_detail| %>
-    <td><%= order_detail.item.name %></td>
-    <td><%= order_detail.item.add_tax_price.to_s(:delimited) %></td>
-    <td><%= order_detail.quantity %></td>
-    <td><%= order_detail.price.to_s(:delimited) %></td>
-    <td>ステータス更新<!--製作ステータスプルダウン--></td>
-    <td>更新</td><!--ここリンク-->
+      <td><%= order_detail.item.name %></td>
+      <td><%= order_detail.item.add_tax_price.to_s(:delimited) %></td>
+      <td><%= order_detail.quantity %></td>
+      <td><%= (order_detail.item.add_tax_price*order_detail.quantity).to_s(:delimited) %></td>
+
+      <%= form_with model: order_detail, url: admin_order_order_detail_path(order_detail), method: :patch, local: true do |f| %>
+        <td><%= f.select :production_status, OrderDetail.production_statuses_i18n.keys, class: "production_status-select" %></td>
+        <td><%= f.submit "更新", class: "btn btn-outline-success" %></td>
+      <% end %>
     <% end %>
   </tr>
+  </tbody>
 </table>
 
 <table>
-  <tr><th>商品合計</th><td><%=  @total_price.round.to_s(:delimited) %>円</td></tr>
+  <th>商品合計</th><td><%= @order.total_price %>円</td></tr>
   <tr><th>送料</th></th><td><%= @order.postage %>円</td></tr>
-  <tr><th>請求金額合計</th><td><%= @total_price + @postage %>円</td></tr>
+  <tr><th>請求金額合計</th><td><%= @order.total_price+800 %>円</td></tr>
 </table>
