@@ -10,29 +10,63 @@
 		  </div>
 		</div>
 	</div>
+</div>
 
-		
-		  <div class="col">
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <div class="card text-center">
-      <%= image_tag("top.jpeg") %>
-      <div class="card-img-overlay">
-		<h1 class="card-title">Welcome to ながのCAKE！</h1>
-		<p class="card-text">会員用トップページです</p>
+<div class="container">
+	<div class="row">
+		<div class="col-4">
+			<h3>新着商品</h3>
 		</div>
 	</div>
-	</div>
-	</div>
-	<div class="col">
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <div class="card text-center">
-      <%= image_tag("top.jpeg") %>
-      <div class="card-img-overlay">
-		<h1 class="card-title">Welcome to ながのCAKE！</h1>
-		<p class="card-text">会員用トップページです</p>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-2 ">
+			<div>
+				<% @items.each do |item| %>
+
+					<%= link_to item_path(item) do %>
+						<%= image_tag item.get_image, size:'70x50', class:"img-responsive" %></br>
+						<%= item.name %>
+					<% end %>
+
+			</div>
+			<p>¥<%= item.price %></p>
+				<% end %>
 		</div>
 	</div>
-	</div>
-	</div>
+</div>
+<div class="container">
+		<div class="row">
+			<div class="col-4">
+				<%= link_to "全ての商品を見る", items_path %>
+			</div>
+		</div>
+</div>
 
-	</div>
+
+
+
+	<!--	  <div class="col">-->
+ <!-- <div class="card w-50 mx-auto mt-4 shadow-lg">-->
+ <!--   <div class="card text-center">-->
+ <!--     <= image_tag("top.jpeg") %>-->
+ <!--     <div class="card-img-overlay">-->
+	<!--	<h1 class="card-title">Welcome to ながのCAKE！</h1>-->
+	<!--	<p class="card-text">会員用トップページです</p>-->
+	<!--	</div>-->
+	<!--</div>-->
+	<!--</div>-->
+	<!--</div>-->
+	<!--<div class="col">-->
+ <!-- <div class="card w-50 mx-auto mt-4 shadow-lg">-->
+ <!--   <div class="card text-center">-->
+ <!--     < image_tag("top.jpeg") %>-->
+ <!--     <div class="card-img-overlay">-->
+	<!--	<h1 class="card-title">Welcome to ながのCAKE！</h1>-->
+	<!--	<p class="card-text">会員用トップページです</p>-->
+	<!--	</div>-->
+	<!--</div>-->
+	<!--</div>-->
+	<!--</div>-->
+
