@@ -17,6 +17,11 @@ class Order < ApplicationRecord
   def subtotal
     item.add_tax_price * quantity
   end
+  
+  # # 小計を求めるメソッド(order)
+  # def order_subtotal
+  #   order.add_tax_price * quantity
+  # end
 
 end
 
