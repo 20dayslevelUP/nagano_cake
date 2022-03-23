@@ -8,6 +8,6 @@
     <%= image_tag item.get_image, size:'100x100' %><br>
     <%= item.name %>
   <% end %>
-  <%= item.price %>
+  <p>¥ <%= item.price %></p>
 <% end %>
 <%= paginate @items %>
