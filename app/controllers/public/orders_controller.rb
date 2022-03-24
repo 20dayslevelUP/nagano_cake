@@ -70,7 +70,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = current_customer.orders.find(params[:id])
-    @total_price = @order.order_details.item.inject(0) { |sum, item| sum + item.order_subtotal }
+    # @total_price = @order.order_details.item.inject(0) { |sum, item| sum + item.order_subtotal }
   end
 
   private
