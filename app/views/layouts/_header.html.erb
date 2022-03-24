@@ -6,13 +6,6 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div>
-        <% if customer_signed_in? %>
-            <p class="active"><i class="fas fa-user-circle"></i>ようこそ、<%= current_customer.last_name %>さん！！</p>
-            <% end %>
-            </div>
-
-
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
 
@@ -20,6 +13,7 @@
       <form class="container-fluid justify-content-start">
 
         <% if customer_signed_in? %>
+         <p class="active"><i class="fas fa-user-circle"></i>ようこそ、<%= current_customer.last_name %>さん！！</p>
           <li>
             <button type="button" class="btn btn-sm btn-outline-light ml-3">
             <%= link_to customers_path,class: 'nav-link text-dark' do %>
@@ -120,6 +114,7 @@
       </div>
     </div>
   </nav>
-
-
+  <div class="text-right">
+  <i class="fas fa-search"></i><input type="text">
+  </div>
 </header>
