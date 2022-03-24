@@ -1,14 +1,20 @@
-<div>
-
-  <ul class=".list-group">
+<table calss="table table-bordered">
+  <thead>
+    <tr>
+      <th>ジャンル検索</th>
+    </tr>
+  </thead>
+  <tbody>
     <% genres.each do |genre| %>
-    <li class=".list-group-item">
-      <%= link_to '' do %>
-        <%= genre.name %>
-      <% end %>
-    </li>
+    <tr>
+      <td>
+        <%= link_to '' do %>
+          <%= genre.name %>
+        <% end %>
+      </td>
+    </tr>
     <% end %>
-  </ul>
-</div>
+  </tbody>
+</table>
 
 
