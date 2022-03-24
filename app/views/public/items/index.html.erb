@@ -12,10 +12,10 @@
         <% @items.each do |item| %>
           <div class="mt-5 mr-4">
             <% if item.is_active == true %>
-              <%= link_to item_path(item) do %>
+              <%= link_to item_path(item), :style =>'text-decoration: none' do %>
                 <%= image_tag item.get_image, size:'160x165', class: 'shadow' %><br>
                 <div class="mt-3">
-                  <%= item.name %><br>
+                  <p style="color: black"><strong><%= item.name %></strong></p><br>
                 </div>
               <% end %>
               <p class="text-right">¥ <%= item.price %></p>
