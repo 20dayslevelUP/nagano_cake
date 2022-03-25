@@ -1,24 +1,36 @@
-# README
+# チーム開発ECサイト｜ながのCAKE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。
 
-Things you may want to cover:
+## 主な機能
+#### 会員側
+* 顧客の会員登録、ログイン・ログアウト、退会
+* ログイン状況に応じてヘッダー表示が変化
+* サイトの閲覧はログインなしで可能
+* 商品をカートに入れる、数量の変更・削除
+* 商品を購入後、マイページに製作状況がステータスで反映される
+* 注文履歴、詳細が確認できる
+* 退会ができる
+#### 管理者側
+* 管理者のログイン・ログアウト
+* 新規商品登録（画像付）
+* 商品ジャンルの追加、編集
+* 登録商品の編集、販売ステータスの変更
+* 注文状況に応じて製作・注文ステータスが更新できる
+* 会員情報の確認
+* 会員の有効・退会状況の変更処理
 
-* Ruby version
+## チームメンバー
+* しんの
+* うめ
+* らん
+* さき
 
-* System dependencies
+## ER図
+![image](https://user-images.githubusercontent.com/98303399/160061156-ff9ef79b-824e-48e6-a998-88935c46cd18.png)
 
-* Configuration
+## TOPページ
+![image](https://user-images.githubusercontent.com/98303399/160061917-99533151-47d8-40ad-b487-a47163fff30e.png)
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
