@@ -1,9 +1,11 @@
-<div class="container-fluid p-5">
+<div class="container p-5">
 <!--<div class="row mt-5 mb-4">-->
 <!--   <div class="col-md-5">-->
-  <div class="card mb-4">
+  <div class="card shadow-lg mb-4">
 		<!--スライドしている部分-->
-		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<!--<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
+			<!--これ--><div id="carousel-2" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
+
 		  <ol class="carousel-indicators">
 		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 		    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -11,13 +13,16 @@
 		  </ol>
 		  <div class="carousel-inner">
 		    <div class="carousel-item active">
-		      <%= image_tag 'top.jpeg', class: "d-block w-100",size: '800x400' %>
+		      <%= image_tag '1.png', alt: "responsive image", class: "d-block img-fluid" %>
+		      <%#= image_tag 'top.jpeg', class: "d-block w-100",size: '800x400' %>
 		    </div>
 		    <div class="carousel-item">
-		      <%= image_tag 'top.jpeg', class: "d-block w-100",size: '800x400' %>
+		    	<%= image_tag '2.png', alt: "responsive image", class: "d-block img-fluid" %>
+		      <%#= image_tag 'top.jpeg', class: "d-block w-100",size: '800x400' %>
 		    </div>
 		    <div class="carousel-item">
-		      <%= image_tag 'top.jpeg', class: "d-block w-100",size: '800x400' %>
+		    	<%= image_tag '3.png', alt: "responsive image", class: "d-block img-fluid" %>
+		      <%#= image_tag 'top.jpeg', class: "d-block w-100",size: '800x400' %>
 		    </div>
 		  </div>
 		  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
