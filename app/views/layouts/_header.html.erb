@@ -1,7 +1,7 @@
 <header class="shadow-sm">
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d6e9ca;">
     <div class="container">
-      <a class="navbar-brand ml-5" href="/"><%= image_tag("logo_long.png") %></a>
+      <a class="navbar-brand" href="/"><%= image_tag("logo_long.png") %></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -15,28 +15,28 @@
         <% if customer_signed_in? %>
          <p class="active"><i class="fas fa-user-circle"></i>ようこそ、<%= current_customer.last_name %>さん！！</p>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%= link_to customers_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-solid fa-user"></i>　マイページ
             <% end %>
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%= link_to items_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-solid fa-cheese"></i>　商品一覧
             <% end %>
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%=  link_to cart_items_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-solid fa-cart-plus"></i>　カート
             <% end %>
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-dark' do %>
               <i class="fas fa-sign-out-alt"></i>　ログアウト
             <% end %>
@@ -44,35 +44,35 @@
           </li>
         <% elsif admin_signed_in? %>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%= link_to admin_items_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-solid fa-cheese"></i>　商品一覧
             <% end %>
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%= link_to admin_customers_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-solid fa-users"></i>　会員一覧
             <% end %>
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%=  link_to admin_orders_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-solid fa-clock"></i>　注文履歴一覧
             <% end %>
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%= link_to admin_genres_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-solid fa-tags"></i>　ジャンル一覧
             <% end %>
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-dark' do %>
               <i class="fas fa-sign-out-alt"></i>　ログアウト
             <% end %>
@@ -80,28 +80,28 @@
           </li>
         <% else %>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%= link_to about_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-solid fa-store"></i> About
             <% end %>
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%= link_to items_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-solid fa-cheese"></i> 商品一覧
             <% end %>
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%= link_to new_customer_registration_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-user-plus"></i> 新規登録
             <% end %>
           </button>
           </li>
           <li>
-            <button type="button" class="btn btn-sm btn-outline-light ml-3">
+            <button type="button" class="btn btn-sm btn-outline-light ml-2">
             <%= link_to new_customer_session_path ,class: 'nav-link text-dark' do %>
               <i class="fas fa-sign-in-alt"></i> ログイン
             <% end %>
